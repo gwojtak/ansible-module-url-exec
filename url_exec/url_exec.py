@@ -1,13 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from __future__ import print_function
-from ansible.module_utils.basic import AnsibleModule
+# Copyright: (c) 2019, Greg Wojtak <greg.wojtak@gmail.com>
 
-import requests
-import hashlib
-import tempfile
-import subprocess
+ANSIBLE_METADATA = {'metadata_version': "1.1",
+                    'status': ["preview"],
+                    'supported_by': "community"}
 
 DOCUMENTATION = '''
 ---
@@ -48,7 +46,7 @@ requirements:
   - "python >= 2.7"
   - requests
 author:
-  - Greg Wojtak <greg.wojtak@gmail.com>
+  - Greg Wojtak (@gwojtak)
 '''
 
 EXAMPLES = '''
@@ -69,6 +67,13 @@ EXAMPLES = '''
     checksum: 93b54496392c062774670ac18b134c3b3a95e5a5e5c8f1a9f115f203b75bf9a129d5daa8ba6a13e2cc8a1da0806388a8
 '''
 
+from __future__ import print_function
+from ansible.module_utils.basic import AnsibleModule
+
+import requests
+import hashlib
+import tempfile
+import subprocess
 
 class UrlExec(object):
     """
